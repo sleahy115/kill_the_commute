@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the company_sort feature.
+ */
+
+include_once 'company_sort.features.inc';
