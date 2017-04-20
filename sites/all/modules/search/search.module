@@ -22,6 +22,11 @@ function industry_form() {
         '#type'=> 'textfield',
         '#description' => t('Please enter industry'),
     );
+    $form['location'] = array(
+        '#title' => 'location',
+        '#type'=> 'textfield',
+        '#description' => t('Please enter location'),
+    );
     $form['submit'] = array(
         '#type' => 'submit',
         '#value' => 'Search by industry',
@@ -31,15 +36,18 @@ function industry_form() {
 
 function industry_form_submit($form, &$form_state) {
     $industry_input = $form_state['values']['industry'];
+    $location_input = $form_state['values']['location'];
 
     $_SESSION['industry_return'] = $industry_input;
+    $_SESSION['location_return'] = $location_input;
 
     $form_state['redirect'] = 'industry_success_page';
 }
 
 function industry_success() {
     $industry_result = $_SESSION['industry_return'];
-    $glassdoor = 'http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=142977&t.k=cEGqsXg9JMY&action=employers&q=' . $industry_result . '&userip=192.168.43.42&useragent=Mozilla/%2F4.0&action=employers';
+    $location_result = $_SESSION['location_return'];
+    $glassdoor = 'http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=142977&t.k=cEGqsXg9JMY&action=employers&q=' . $industry_result . '&userip=192.168.43.42&useragent=Mozilla/%2F4.0&action=employers&l=' .$location_result;
     $result = file_get_contents($glassdoor);
     $jobs_array = json_decode($result, true);
     $companies = $jobs_array['response']["employers"];
