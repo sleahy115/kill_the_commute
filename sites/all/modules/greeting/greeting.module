@@ -1,0 +1,42 @@
+<?php
+function greeting_menu() {
+  $items = array();
+  $items['hello_friend'] = array(
+    'title' => 'hello friend!',
+    'page callback' => 'say_hello',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['farewell'] = array(
+    'title' => 'farewell friend',
+    'page callback' => 'say_farewell',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['specials'] = array(
+    'title' => 'Services Menu',
+    'page callback' => 'menu_display',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+function say_hello() {
+  return '<p> Hello my friend</p>';
+}
+
+function say_farewell() {
+  return '<p>So long, farewell</p>';
+}
+
+function menu_display() {
+  return '
+  <ul>
+    <li>View company profiles</li>
+    <li>Add company profiles</li>
+    <li>edit company profiles</li>
+    <li>Rate companies</li>
+    </ul>
+    ';
+}
