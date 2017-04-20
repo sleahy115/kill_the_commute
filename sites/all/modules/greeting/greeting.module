@@ -20,7 +20,7 @@ function greeting_menu() {
     'type' => MENU_NORMAL_ITEM,
   );
   $items['api'] = array(
-    'title' => 'companies',
+    'title' => 'Companies',
     'page callback' => 'api',
     'access callback' => TRUE,
     'type' => MENU_NORMAL_ITEM,
@@ -53,11 +53,20 @@ $glassdoor = 'http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=142977&t.
 $result = file_get_contents($glassdoor);
 $jobs_array = json_decode($result, true);
 $companies = $jobs_array['response']["employers"];
-$company_names = '<ul>';
+$company_names = '<div>';
 for($i = 0; $i<count($companies); $i++) {
     $company_name = $companies[$i]['name'];
-    $company_names = $company_names . '<li>' . $company_name . '</li>';
+    $company_website = $companies[$i]['website'];
+    $company_industry = $companies[$i]['industry'];
+    $company_overall = $companies[$i]['overallRating'];
+    $cultureAndValuesRating = $companies[$i]['cultureAndValuesRating'];
+    $seniorLeadershipRating = $companies[$i]['seniorLeadershipRating'];
+    $compensationAndBenefitsRating = $companies[$i]['compensationAndBenefitsRating'];
+    $careerOpportunitiesRating = $companies[$i]['careerOpportunitiesRating'];
+    $workLifeBalanceRating = $companies[$i]['workLifeBalanceRating'];
+
+    $company_names = $company_names . '<h1>' . $company_name . '</h1><h3>Website: ' .'<a href="http://' . $company_website.'">' . $company_website . '</a></h3><h3>Industry: ' . $company_industry . '</h3><h3>Overall Rating: ' . $company_overall . '</h3><h3>Culture and Values Rating: ' . $cultureAndValuesRating . '</h3><h3>Senior Leadership Rating: ' . $seniorLeadershipRating . '</h3><h3>Compensation and Benefits Rating: ' . $compensationAndBenefitsRating . '</h3><h3>Career Opportunities Rating: ' . $careerOpportunitiesRating . '</h3><h3>Work Life Balance Rating: ' . $workLifeBalanceRating . '</h3>';
 }
-$company_names = $company_names . '</ul>';
+$company_names = $company_names . '</div>';
 return $company_names;
 }
