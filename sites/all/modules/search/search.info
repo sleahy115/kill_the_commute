@@ -1,0 +1,5 @@
+name = Search
+description = search by industry.
+package = Epicodus Examples
+core = 7.x
+files[] = search.module
