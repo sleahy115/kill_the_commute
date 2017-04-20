@@ -1,24 +1,6 @@
 <?php
 function greeting_menu() {
   $items = array();
-  $items['hello_friend'] = array(
-    'title' => 'hello friend!',
-    'page callback' => 'say_hello',
-    'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM,
-  );
-  $items['farewell'] = array(
-    'title' => 'farewell friend',
-    'page callback' => 'say_farewell',
-    'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM,
-  );
-  $items['specials'] = array(
-    'title' => 'Services Menu',
-    'page callback' => 'menu_display',
-    'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM,
-  );
   $items['api'] = array(
     'title' => 'Companies',
     'page callback' => 'api',
@@ -28,25 +10,6 @@ function greeting_menu() {
   return $items;
 }
 
-function say_hello() {
-  $name = "Sarah";
-  return '<p> Hello my friend' . $name  . '</p>';
-}
-
-function say_farewell() {
-  return '<p>So long, farewell</p>';
-}
-
-function menu_display() {
-  return '
-  <ul>
-    <li>View company profiles</li>
-    <li>Add company profiles</li>
-    <li>edit company profiles</li>
-    <li>Rate companies</li>
-    </ul>
-    ';
-}
 
 function api() {
 $glassdoor = 'http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=142977&t.k=cEGqsXg9JMY&action=employers&q=tech&userip=192.168.43.42&useragent=Mozilla/%2F4.0&action=employers';
