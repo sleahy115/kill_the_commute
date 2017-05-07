@@ -1,13 +1,15 @@
-# Kill the commute. 
+# Kill the commute.
 
 ## Created by Sarah Leahy and David Quisenberry
 
-  This website allows a user to search for jobs by industry and shows a map of the locations. A user can input thier home address and search for jobs nearby, thus "Killing the commute".
+  This website allows a user to search for jobs by industry and shows a map of the locations. A user can input thier home address and search for jobs nearby, thus "Killing the commute". This site was created with Drupal 7 and uses stripe for processing payments for upgraded content. 
 
 ## User Story
 
 * As a user I would like to search for jobs by industry.
 * As a user I would like to see where the companies are located.
+* As a user I would like to be able to upgrade for exclusive content.
+
 
 ## Setup/Installation Requirements
 
@@ -36,6 +38,7 @@ There are no known bugs at this time, but please contact the creator with questi
 * Glassdoor API
 * Pantheon
 * GMAP
+* Stripe
 
 ## Licensing
 This application features MIT licensing.
